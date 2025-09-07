@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  story-generator:
+    build: .
+    ports:
+      - "8080:8080"
+    environment:
+      - API_KEY=${API_KEY}
+    volumes:
+      - ./generated_images:/app/generated_images
+    env_file:
+      - .env
+    restart: unless-stopped
